@@ -1,0 +1,58 @@
+<div class="header__langButton md:flex md:gap-4 md:flex-wrap md:items-center">
+	<div class="header__language">
+		<section>
+			<nav>
+				<ul class="langList">
+					<li class="langList__item">
+						<span class="text-primary">Português</span>
+					</li>
+				</ul>
+			</nav>
+		</section>
+	</div>
+
+	<div class="header__buttonCta">
+		<a href="" class="btn header__contactBtn bg-secondary p-2 text-white">
+			Fale conosco
+		</a>
+
+	</div>
+</div>
+
+<style lang="scss">
+	.langList__item {
+		margin-right: 16px;
+
+		span {
+			position: relative;
+			font-weight: 500;
+			display: inline-flex;
+			align-items: center;
+
+			&::before {
+				content: url('/lang-br.png');
+				margin: 0 8px;
+				border-radius: 8px;
+				overflow: hidden;
+				width: 28px;
+			}
+
+			&::after {
+				content: "^";
+				position: relative;
+				margin-top: 4px;
+				right: -12px;
+				font-family: "Josefin Sans", sans-serif;
+				font-size: 28px;
+				font-weight: 700;
+				transform: rotate(180deg);
+				width: 10px;
+				height: 10px;
+			}			
+		}
+	}
+
+	.header__contactBtn {
+		font-weight: 700;
+	}
+</style>

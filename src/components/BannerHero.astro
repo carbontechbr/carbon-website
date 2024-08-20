@@ -1,0 +1,137 @@
+---
+interface Props {
+	title: string;
+	titleSpan: string;
+	subtitle: string;
+	buttonText: string;
+	asset: string;
+}
+
+const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
+---
+
+<div class="bannerHero">
+	<div class="bannerHero__content">
+		<section class="container px-4 2xl:px-0">
+
+			<div class="bannerHero__textImg sm:flex sm:justify-between sm:items-center">
+				<div class="bannerHero__wrapText my-4">
+					<h2 class="bannerHero__title text-secondary text-[1.375rem] xl:text-[3rem] mb-4 md:mb-8">
+						{title} <span class="text-white">{titleSpan}</span>
+					</h2>
+		
+					<p class="bannerHero__subtitle lineText text-white text-[.875rem] sm-text-[.875rem] mb-6 md:mb-8">
+						{subtitle}
+					</p>
+		
+					<a href="" class="btn bg-secondary px-3 py-2 text-white text-[.875rem] md:text-[1.375rem]
+					">
+						{buttonText}
+					</a>
+				</div>
+
+				<div class="bannerHero__img">
+					<img src={asset} alt="Image Banner Hero" width="520" height="520" class="anime__img">
+
+				</div>
+			</div>
+			
+		</section>
+
+	</div>
+	<div class="bannerHero__bg">
+		<img src="/herobg.jpeg" alt="Background Banner Hero">
+	</div>
+</div>
+
+<style lang="scss">
+	.anime__img {
+    	animation: moving 1.5s infinite  alternate;
+	}
+
+	@keyframes moving{
+		0% { transform: translateY(0); }
+		100% { transform: translateY(-10px); }
+	}
+
+
+	.bannerHero {
+		position: relative;
+	}
+
+	.bannerHero__content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+	}
+
+	.bannerHero__bg {
+		img {
+			aspect-ratio: 4/3;
+		}
+	}
+
+	.bannerHero__img {
+		img {
+			width: 20%;
+		}
+	}
+
+	.bannerHero__title {
+		font-weight: 800;
+		line-height: 1;
+
+		span {
+			display: block;
+		}
+	}
+
+	@media(screen(sm)) {	
+		.bannerHero__bg {
+			img {
+				aspect-ratio: 2 / 1;
+			}
+		}
+		.bannerHero__img {
+			display: flex;
+			justify-content: right;
+			img {
+				width: 60%;
+			}
+		}
+	}
+
+	@media(screen(md)) {		
+
+		.bannerHero__bg {
+			img {
+				aspect-ratio: auto;
+			}
+		}
+
+		.bannerHero__wrapText {
+			max-width: 560px;
+		}
+
+
+		.bannerHero__subtitle {
+			font-size: 1.25rem;
+		}
+
+	}
+
+	@media(screen(2xl)) {
+
+		.bannerHero__img {
+			margin-top: 48px;
+
+			img {
+				width: 90%;
+			}
+		}
+	}
+
+</style>

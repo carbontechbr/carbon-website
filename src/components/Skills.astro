@@ -1,0 +1,132 @@
+<div class="skill__content bg-alabaster py-12 md:py-16">
+	<div class="container px-4 2xl:px-0">
+		<section>
+
+			<div class="skill__textWrap text-center">
+				<h3 class="skill__title text-primary text-xl md:text-[2.125rem] mb-5">
+					Nossa experiência
+				</h3>
+
+				<p class="skill__subtitle text-riverBed mb-5">
+					Conheça algumas das marcas parar as quais nosso time já contribuiu
+				</p>
+	
+			</div>
+
+			<div class="skill__brandsAnimation my-8">
+				<div class="skill__brands">
+					<div class="skill__brandItem">
+						<img src="/brand-ricson.png" alt="Ricson">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-epson.png" alt="Epson">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-compal.png" alt="Compal">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-bosch.png" alt="Bosch">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-asus.png" alt="Asus">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-alcatel.png" alt="Alcatel">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-ricson.png" alt="Ricson">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-epson.png" alt="Epson">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-compal.png" alt="Compal">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-bosch.png" alt="Bosch">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-asus.png" alt="Asus">
+					</div>
+					<div class="skill__brandItem">
+						<img src="/brand-alcatel.png" alt="Alcatel">
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</div>
+</div>
+
+<style lang="scss">
+
+	.skill__title {
+		font-weight: 700;
+	}
+
+	.skill__brandsAnimation {
+		position: relative;
+		overflow-x: hidden;
+
+		&::before,
+		&::after {
+			content: " ";	
+			position: absolute;
+			top: 0;
+			width: 40px;
+			height: 100%;
+			z-index: 2;
+		}
+
+		&::before {
+			left: 0;
+			background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(248,248,248,0.63) 39%,rgba(248,248,248,0.44) 59%); 
+		}
+
+		&::after {
+			right: 0;
+			background: linear-gradient(to right,  rgba(248,248,248,0.44) 0%,rgba(248,248,248,0.44) 68%,rgba(255,255,255,1) 100%);
+		}
+	}
+
+	.skill__brands {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 32px;
+		animation-name: brandScroll;
+		animation-duration: 12s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-delay: -1s;
+	}
+
+	.skill__brandItem {
+		img {
+			max-width: 165px;
+			margin: 0 auto;
+		}
+	}
+
+	@keyframes brandScroll {
+		from {
+    		transform: translateX(50vw);
+  		}
+		to {
+			transform: translateX(-50vw);
+		}
+	}	
+
+	@media(screen(md)) {		
+
+		.skill__brandsAnimation {
+			&::before,
+			&::after {		
+				width: 150px;	
+			}
+		}
+	}
+
+</style>

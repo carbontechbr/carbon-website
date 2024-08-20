@@ -1,0 +1,65 @@
+---
+interface Props {
+	photo: string;
+	name: string,
+	role: string;
+	description: string;
+}
+
+const { photo,name,role,description } = Astro.props;
+
+---
+
+<div class="cardTeam">
+	<article>
+		<div class="cardTeam__figure mb-4">
+			<figure>
+				<img src={photo} alt={name}>
+			</figure>
+		</div>
+		<h5 class="cardTeam__name text-primary mb-2">{name}</h5>
+
+		<span class="cardTeam__role mb-2 block text-secondary">{role}</span>
+
+		<p class="cardTeam__description mb-8 text-primary">{description}</p>
+	</article>
+</div>
+
+<style lang="scss">
+
+	.cardTeam__figure {
+		border-radius: 8px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.cardTeam__name {
+		font-weight: 700;
+	}
+
+	.cardTeam__role, 
+	.cardTeam__description {
+		font-size: .875rem;
+		font-weight: 500;
+	}
+
+	.cardTeam__description {
+		line-height: 1.4;
+	}
+
+	@media(screen(md)) {
+
+		.cardTeam__name {
+			font-size: 1.75rem;
+		}
+
+		.cardTeam__role, 
+		.cardTeam__description {
+			font-size: 1rem;
+		}		
+	}
+	
+</style>

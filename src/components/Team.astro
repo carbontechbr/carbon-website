@@ -1,0 +1,102 @@
+---
+import CardTeam from './CardTeam.astro';
+---
+
+<div class="team__content">
+	<div class="container px-4 2xl:px-0">
+		<div class="team__wrap flex flex-col md:flex-row">
+			<div class="team__cards order-2 md:order-1">
+
+				<CardTeam 
+					photo='/photo2.jpg'
+					name='Rafael Ruppel'
+					role='Founder & Advisor'
+					description='Experiência de mais de 20 anos em e-Commerce. Ex-fundador da Atonit, 1a empresa da América Latina adquirida pela Salesforce. Ex-VP Product Management Salesforce. '				
+				/>
+
+				<CardTeam 
+					photo='/photo2.jpg'
+					name='Peterson Camargo'
+					role='Founder & Co-CTO'
+					description='Experiência de mais de 20 anos em e-Commerce. Ex-fundador da Atonit, 1a empresa da América LAtina adquirida pela Salesforce. Ex-VP Product Management Salesforce'				
+				/>
+		
+				<CardTeam 
+					photo='/photo2.jpg'
+					name='Vitor Santos'
+					role='Founder & Co-CTO'
+					description='Experiência de mais de 15 anos em e-Commerce. Ex-Diretor de Engenharia da Salesforce'				
+				/>
+				<CardTeam 
+					photo='/photo2.jpg'
+					name='Samir'
+					role='Founder & Co-CTO'
+					description='Experiência de mais de 20 anos em arquiteturas de alta disponibilidade. Com experiência em Itaú, C6 Bank e Salesforce. '				
+				/>
+				<CardTeam 
+					photo='/photo2.jpg'
+					name='Guilherme Serrano'
+					role='Founder & Advisor'
+					description='Experiência de mais de 20 anos na Indústria de Bens de Consumo. Ex-CFO Procter & Gamble Brasil. Ex-CFO Reckitt Oriente Médio.'				
+				/>
+
+			</div>
+
+			<div class="team__about mb-8 md:mb-2 md:order-2">
+				<h6 class="team__group mb-4 text-primary">
+					Reunião de talento e experiência
+				</h6>
+
+				<div class="team__textCaption lineText ">
+					Conte com profissionais qualificados e experientes, dedicados a transformar a digitalização do mercado. Nossa equipe traz habilidades de empresas líderes em tecnologia, pronta para implementar soluções inovadoras e personalizadas. Trabalhamos juntos para garantir que você tenha as ferramentas e o suporte necessário para alcançar seus objetivos de negócios.
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+
+	.team__content {
+		margin: 60px 0;
+	}
+
+	.team__group {
+		font-weight: 700;
+		font-size: 1.175rem;
+		line-height: 1;
+	} 
+
+	.team__textCaption {
+		position: relative;
+		color: #495861;
+		line-height: 1.4;
+	}
+
+	@media (screen(sm)) {
+		.team__cards {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 24px;
+
+			:global(.cardTeam) {
+				max-width: 340px;
+			}
+		}
+	}
+
+	@media (screen(md)) {
+		.team__group {
+			font-size: 2.125rem;
+			max-width: 280px;
+		}
+
+		.team__textCaption  {
+			width: 270px;
+			font-size: 1.125rem;
+
+		}
+	}
+
+</style>
