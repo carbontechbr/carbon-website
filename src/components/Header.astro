@@ -1,0 +1,226 @@
+---
+import LanguageCta from './LanguageCta.astro';
+
+---
+
+<header>
+	<div class="header__content">
+		<div class="container px-4 2xl:px-0">
+
+			<button class="btnMenu" aria-label="Botão menu mobile">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+
+			<div class="header__wrap md:flex md:justify-between md:items-center">
+
+				<div class="header__logo">
+					<img src="/logo.svg" alt="Logo Carbon Tech" width="200" height="45">
+				</div>
+
+				<div class="header__contentMenu">
+					<nav>
+						<ul class="header__menu md:flex md:gap-8">
+							<li class="header__menuItem">
+								<a href="">
+									<span>
+										Serviços
+									</span>
+								</a>
+							</li>
+							<li class="header__menuItem">
+								<a href="">
+									<span>
+										Produtos
+									</span>
+								</a>
+							</li>
+							<li class="header__menuItem">
+								<a href="">
+									<span>
+										Como Fazemos
+									</span>
+								</a>
+							</li>
+							<li class="header__menuItem">
+								<a href="">
+									<span>
+										Cursos
+									</span>
+								</a>
+							</li>
+							<li class="header__menuItem">
+								<a href="">
+									<span>
+										Carbon Tech
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="is__mobile btnCta__m">
+						<LanguageCta />
+					</div>
+				</div>
+
+				<div class="is__desktop">
+					<LanguageCta />
+				</div>			
+			</div>
+		</div>
+	</div>
+
+</header>
+
+<script>
+	const btnMenu = document.querySelector('.btnMenu');
+	const mainMenu = document.querySelector('.header__contentMenu');
+
+	btnMenu.addEventListener('click', (e) => {
+		e.currentTarget.classList.toggle('active');
+		mainMenu.classList.toggle('active');
+	});
+</script>
+
+<style lang="scss">
+
+	.header__logo {
+		max-width: 150px;
+		margin: 16px 0;
+	}
+
+	.btnMenu {
+		position: absolute;
+		top: 20px;
+		right: 16px;
+
+		span {
+			display: block;
+			width: 28px;
+			height: 2px;
+			margin-bottom: 6px;
+			position: relative;			
+			background: #262E32;
+			border-radius: 3px;			
+			z-index: 1;			
+			transform-origin: 3px 0px;			
+			transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+							background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+			opacity 0.55s ease;
+		}
+
+		&.active {
+			span {
+
+				&:nth-child(1) {
+					opacity: 1;
+					transform: rotate(45deg) translate(-2px, -1px);
+					background: #232323;
+				}
+				&:nth-child(2) {
+					opacity: 1;
+					transform: rotate(-45deg) translate(-5px, 2px);
+  					background: #232323;
+				}
+				&:nth-child(3) {
+					opacity: 0;
+					transform: rotate(0deg) scale(0.2, 0.2);
+				}
+			}
+		}
+	}
+
+	.btnCta__m {
+		padding: 0 20px;
+
+		:global(.header__buttonCta) {
+			margin-top: 25px;					
+		}
+	}	
+
+	.header__contentMenu {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: calc(100% - 55px);
+		height: 100vh;
+		background-color: #f4f4f4;
+		transition: left .5s ease-in-out;
+		z-index: 20;	
+		
+		&.active {
+			left: 0;
+		}
+	}
+
+	.header__menu {
+		padding: 20px;
+	}
+
+	.header__menuItem {
+		padding: 16px 0;
+
+		a {
+			display: block;
+		}
+
+		span {
+			position: relative;
+			color: #262E32;
+			font-weight: 500;
+			display: inline-flex;
+			justify-content: center;
+
+			&::after {
+				content: "^";
+				position: relative;
+				margin-top: 4px;
+				right: -12px;
+				font-family: "Josefin Sans", sans-serif;
+				font-size: 28px;
+				font-weight: 700;
+				transform: rotate(180deg);
+				width: 10px;
+				height: 10px;
+			}
+		}
+	}
+
+	@media (screen(md)) {	
+
+		.btnMenu {
+			display: none;
+		}
+
+		.header__wrap {
+			height: 84px;
+		}
+
+		.header__buttonCta {
+			
+		}
+
+		.header__logo {
+			max-width: 200px;
+			margin: 0;
+		}
+
+		.header__contentMenu {
+			position: static;
+			width: auto;
+			height: auto;
+			background: none;
+			transition: none;		
+		}
+
+		.header__menuItem,
+		.header__contactBtn {
+			span {
+				font-size: 1.125rem;
+			}
+		}
+
+	}
+
+</style>
