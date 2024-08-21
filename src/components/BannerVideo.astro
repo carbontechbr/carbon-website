@@ -1,9 +1,116 @@
+---
+import Modal from "./Modal.vue"
+---
+<div class="bannerVideo">
+	<div class="bannerVideo__content">
+		<div class="container px-4 2xl:px-0">
+			<section>
+				<div class="bannerVideo__textWrap py-6 lg:py-12 text-center">
+					<h2 class="bannerVideo__title text-white mb-4 lg:mt-8">
+						Aumente sua Taxa de Conversão
+					</h2>
+
+					<p class="bannerVideo__subtitle text-white mb-4">
+						Implemente o checkout que mais converte em Salesforce Commerce Cloud
+					</p>
+				</div>
+
+				<div class="bannerVideo__thumb text-center pb-8 lg:pb-12 js-videoPlay">
+					<img src="/video-player.webp" alt="Imagem background video" width="1400" height="200">
+				</div>
+			</section>
+	
+		</div>
+	</div>
+	<div class="bannerVideo__bg">
+		<img src="/video-bg.webp" alt="Imagem background video" width="1920" height="558">
+	</div>
+
+	<Modal client:load>
+		<iframe class="y-video" width="560" height="315" src="https://www.youtube.com/embed/ZK-rNEhJIDs?si=of_81BMsB5uZZeKN&enablejsapi=1" title="Video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>		
+	</Modal>
+
+</div>
+
+<script>
+
+	const playVideo = document.querySelector('.js-videoPlay');
+	const modalContent = document.querySelector('.modal__content');
+
+	playVideo.addEventListener('click', () => {
+		modalContent.classList.add('is__show');
+	});
+
+</script>
 
 <style lang="scss">
-	
-	@media(screen(md)) {		
 
-		
+	.bannerVideo {
+		position: relative;
+
+		&__content {
+			position: relative;
+			z-index: 2;
+		}
+
+		&__title {
+			font-weight: 800;
+			font-size: 1.5rem;
+		}
+
+		&__subtitle {
+			font-weight: 300;
+		}
+
+		&__thumb {	
+			img {
+				width: 100%;
+				object-fit: cover;
+				height: 180px;
+			}		
+		}
+
+		&__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			img {
+				width: 100%;
+				object-fit: cover;
+				height: 100%;
+			}
+		}
+	}	
+
+	@media(screen(md)) {		
+		.bannerVideo {
+			position: relative;
+
+			&__title {
+				font-size: 2.5rem;				
+			}
+
+			&__subtitle {
+				font-size: 1.5rem;
+			}
+
+			&__thumb {
+				img {
+					margin: 0 auto;
+				}
+			}			
+		}			
+	}
+
+	@media(screen(2xl)) {	
+		.bannerVideo {		
+			&__title {
+				font-size:5.375rem ;
+			}
+		}			
 	}
 
 </style>
