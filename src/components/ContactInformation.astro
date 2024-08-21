@@ -1,0 +1,142 @@
+<div class="contactInformation py-6 md:py-20 bg-alabaster">
+	<div class="container px-4 2xl:px-0">
+		<section>
+
+			<div class="contactInformation__content">
+				<div class="contactInformation__wrapCol md:flex md:gap-4 md:justify-between">
+					<div class="contactInformation__text">
+						<h3 class="custom__title text-primary inline-block mb-4">
+							Informações de contato
+						</h3>
+			
+						<p class="contactInformation__title text-primary my-4">
+							Estamos sempre felizes em ajudá-lo
+						</p>
+
+					</div>
+
+					<div class="contactInformation__infos md:flex md:gap-12">
+						<div class="contactInformation__columns md:grow">
+							<h3 class="contactInformation__heading text-primary inline-block mb-4">
+								E-mail
+							</h3>
+
+							<p class="contactInformation__details text-primary mb-4">
+								<strong>help@info.com</strong>
+							</p>
+
+							<p class="contactInformation__details text-primary mb-4">
+								Assistance hours: 
+								Monday - Friday 6 am to 8 pm EST
+							</p>
+
+						</div>
+
+						<div class="contactInformation__columns md:grow">
+							<h3 class="contactInformation__heading text-primary inline-block mb-4">
+								Telefone
+							</h3>
+
+							<p class="contactInformation__details text-primary mb-4">
+								<strong>(808) 998-34256</strong>
+							</p>
+
+							<p class="contactInformation__details text-primary mb-4">
+								Assistance hours: 
+								Monday - Friday 6 am to 8 pm EST
+							</p>
+
+						</div>
+
+						<div class="contactInformation__columns md:grow">
+							<h3 class="contactInformation__heading text-primary inline-block mb-4">
+								Endereço
+							</h3>
+
+							<p class="contactInformation__details text-primary mb-4">
+								<strong>(808) 998-34256</strong>
+							</p>
+
+							<p class="contactInformation__details text-primary mb-4">
+								Assistance hours: 
+								Monday - Friday 6 am to 8 pm EST
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</section>
+	</div>
+</div>
+
+
+<style lang="scss">
+
+	.contactInformation {
+		&__title {
+			font-weight: 800;
+			font-size: 1.5rem;
+		}
+
+		&__heading {
+			font-weight: 700;
+			position: relative;
+			padding-bottom: 20px;		
+
+			&::before {
+				content: " ";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 27px;
+				height: 3px;
+				background-color: #262E32;
+			}
+		}
+
+		&__details {
+			line-height: 1.2;
+		}
+
+		&__columns {
+			margin-bottom: 32px;
+		}
+	}
+
+	@media(screen(md)) {
+		.contactInformation {
+			&__title {			
+				font-size: 2rem;
+			}
+
+			&__text {
+				max-width: 575px;
+			}
+
+			&__heading {
+				font-size: 1.375;
+			}
+
+			&__details {
+				line-height: 1.4;
+			}
+		}
+	}
+
+	@media (screen(lg)) {
+		.contactInformation {
+			&__title {
+				font-size: 3rem;
+			}
+
+			&__infos {
+				max-width: 750px;
+			}
+			
+			&__details {
+				font-size: 1.375rem;
+			}
+		}		
+	}
+	
+</style>
