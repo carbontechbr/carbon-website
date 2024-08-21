@@ -1,0 +1,140 @@
+---
+import InputField from "./InputField.astro";
+---
+
+<div class="contactForm py-8 md:py-12">
+	<div class="container px-4 2xl:px-0">
+		<section>
+
+			<div class="contactForm__introduction">
+				<h3 class="custom__title text-primary inline-block mb-4">
+					Fale conosco
+				</h3>
+
+				<p class="contactForm__title text-primary my-4 md:my-10">
+					Entre em contato <span>conosco</span>
+				</p>
+			</div>
+
+			<div class="contactForm__formContent py-8">
+				<form name="frmContact">
+					<div class="contactForm__inputWrap">
+						<InputField label="Seu nome" type="text" id="inpt_name" />
+						<InputField label="Endereço de e-mail" type="email" id="inpt_email" />
+						<InputField label="Telefone (opcional)" type="text" id="inpt_telefone" />
+					</div>
+
+					<div class="textArea my-5">
+						<textarea name="area_message" id="contacMessage" class="textArea__content"></textarea>				
+						<label for="contacMessage" class="txtArea__label">Descreva da melhor forma qual seu objetivo em seu negócio</label>
+						<span class="textArea__error">Campo obrigatório</span>
+					</div>
+
+					<div class="contactFrom__btnSubmit">
+						<button class="btn bg-secondary text-white p-4 lg:p-8">
+							<span>
+								Enviar mensagem <i>-></i>
+							</span>
+						</button>
+					</div>
+
+				</form>
+			</div>
+
+		</section>
+
+	</div>
+</div>
+
+
+<style lang="scss">
+
+	.contactForm__title {
+		font-weight: 800;
+		font-size: 2rem;
+		line-height: 1;
+
+		span {
+			display: block;
+		}
+	}
+
+	.textArea {
+		position: relative;
+
+		&__label {
+			display: block;
+		}
+
+		&__content {
+			width: 100%;
+			border: 0;
+			border-bottom: 1px solid #cacaca;
+			display: block;
+			padding: 40px 10px 10px;
+			background-color: transparent;
+			color: #262E32;
+
+			&:focus {
+				outline: none;
+				border-color: #fc2791;
+			}
+
+			~ label {
+				position: absolute;
+				left: 10px;
+				width: 100%;
+				top: 9px;
+				color: #495861;
+				transition: 0.3s;
+				letter-spacing: 0.5px;
+			}
+
+			&:focus ~ label {
+				top: -4px;
+				font-size: 0.875rem;
+				color: #fc2791;
+				transition: 0.3s;
+			}
+		}
+
+		&__error {
+			margin: 4px 0;
+			font-size: .75rem;
+			color: red;
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		&.is__error {
+			.inputField__error {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+  	}
+
+	@media(screen(md)) {
+
+		.contactForm {
+			&__inputWrap {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 32px;
+
+				:global(.inputField) {
+					flex: 1 1 auto;
+					margin: 16px 0;
+				}
+			}
+		}
+	}
+
+	@media (screen(lg)) {
+		.contactForm__title {
+			font-size: 5rem;
+		}
+	}
+	
+</style>
