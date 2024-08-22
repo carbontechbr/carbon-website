@@ -1,0 +1,205 @@
+$icomoon-font-family: "icomoon" !default;
+$icomoon-font-path: "/fonts" !default;
+
+$icon-arrow-jose: unquote('"\\e900"');
+$icon-alternate_email: unquote('"\\e909"');
+$icon-fullscreen_exit: unquote('"\\e915"');
+$icon-share: unquote('"\\e920"');
+$icon-menu: unquote('"\\e98e"');
+$icon-close: unquote('"\\e98f"');
+$icon-error_outline: unquote('"\\e998"');
+$icon-filter_list: unquote('"\\e99b"');
+$icon-format_list_bulleted: unquote('"\\e99d"');
+$icon-lock_open: unquote('"\\e9b3"');
+$icon-lock_outline: unquote('"\\e9b4"');
+$icon-storefront: unquote('"\\e9b5"');
+$icon-trash-o: unquote('"\\f014"');
+$icon-twitter: unquote('"\\f099"');
+$icon-linkedin: unquote('"\\f0e1"');
+$icon-instagram: unquote('"\\f16d"');
+$icon-whatsapp: unquote('"\\f232"');
+$icon-caret-down: unquote('"\\f0d7"');
+$icon-caret-up: unquote('"\\f0d8"');
+$icon-caret-left: unquote('"\\f0d9"');
+$icon-caret-right: unquote('"\\f0da"');
+$icon-angle-left: unquote('"\\f104"');
+$icon-angle-right: unquote('"\\f105"');
+$icon-angle-up: unquote('"\\f106"');
+$icon-angle-down: unquote('"\\f107"');
+$icon-handshake-o: unquote('"\\f2b5"');
+$icon-arrow-right: unquote('"\\ea3c"');
+$icon-arrow-left: unquote('"\\ea40"');
+$icon-facebook: unquote('"\\ea90"');
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?4h1qvi') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?4h1qvi') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?4h1qvi##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-jose {
+  &:before {
+    content: $icon-arrow-jose; 
+  }
+}
+.icon-alternate_email {
+  &:before {
+    content: $icon-alternate_email; 
+  }
+}
+.icon-fullscreen_exit {
+  &:before {
+    content: $icon-fullscreen_exit; 
+  }
+}
+.icon-share {
+  &:before {
+    content: $icon-share; 
+  }
+}
+.icon-menu {
+  &:before {
+    content: $icon-menu; 
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close; 
+  }
+}
+.icon-error_outline {
+  &:before {
+    content: $icon-error_outline; 
+  }
+}
+.icon-filter_list {
+  &:before {
+    content: $icon-filter_list; 
+  }
+}
+.icon-format_list_bulleted {
+  &:before {
+    content: $icon-format_list_bulleted; 
+  }
+}
+.icon-lock_open {
+  &:before {
+    content: $icon-lock_open; 
+  }
+}
+.icon-lock_outline {
+  &:before {
+    content: $icon-lock_outline; 
+  }
+}
+.icon-storefront {
+  &:before {
+    content: $icon-storefront; 
+  }
+}
+.icon-trash-o {
+  &:before {
+    content: $icon-trash-o; 
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter; 
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin; 
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram; 
+  }
+}
+.icon-whatsapp {
+  &:before {
+    content: $icon-whatsapp; 
+  }
+}
+.icon-caret-down {
+  &:before {
+    content: $icon-caret-down; 
+  }
+}
+.icon-caret-up {
+  &:before {
+    content: $icon-caret-up; 
+  }
+}
+.icon-caret-left {
+  &:before {
+    content: $icon-caret-left; 
+  }
+}
+.icon-caret-right {
+  &:before {
+    content: $icon-caret-right; 
+  }
+}
+.icon-angle-left {
+  &:before {
+    content: $icon-angle-left; 
+  }
+}
+.icon-angle-right {
+  &:before {
+    content: $icon-angle-right; 
+  }
+}
+.icon-angle-up {
+  &:before {
+    content: $icon-angle-up; 
+  }
+}
+.icon-angle-down {
+  &:before {
+    content: $icon-angle-down; 
+  }
+}
+.icon-handshake-o {
+  &:before {
+    content: $icon-handshake-o; 
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right; 
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left; 
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook; 
+  }
+}
+

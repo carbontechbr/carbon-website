@@ -1,0 +1,82 @@
+@import './source/core';
+
+:root {
+   --primary-color: #262E32;
+   --secondary-color: #FC2791;
+   --silver--color: #BEBEBE;
+   --alabaster-color: #F8F8F8;
+   --codGray-color: #1D1D1D;
+   --riverBed-color: #495861;
+}	
+
+code {
+   font-family:
+   Menlo,
+   Monaco,
+   Lucida Console,
+   Liberation Mono,
+   DejaVu Sans Mono,
+   Bitstream Vera Sans Mono,
+   Courier New,
+   monospace;
+}
+
+html {
+   font-family: 'Raleway', sans-serif;
+   line-height: 1;
+}	
+
+p {
+   line-height: 1.2;
+}
+
+.container {
+   max-width: 1440px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.btn {
+   border-radius: 8px;
+   font-weight: 700;
+}
+
+.lineText {
+   position: relative;
+   padding-left: 20px;
+   &::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background-color: var(--secondary-color);
+   }
+}
+
+.custom__title {
+   font-weight: 800;
+   text-transform: uppercase;
+   border-bottom: 2px solid var(--secondary-color);
+   padding-top: 4px;
+}
+
+iframe {
+   width: 100%;
+   height: 100%;
+   min-height: 350px;
+}
+
+.is__desktop {
+   display: none;
+}
+
+@media (screen(md)) {
+   .is__mobile {
+      display: none;
+   }
+   .is__desktop {
+      display: initial;
+   }
+}

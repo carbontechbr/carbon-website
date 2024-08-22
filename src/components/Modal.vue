@@ -2,8 +2,8 @@
    <div class="modal__content">      
       <div class="modalFactory">
          <div class="modalFactory__container">
-            <button class="btn__text js-modalFactory-close" @click="closeModal">
-               <i class="icon icon-close"></i>X
+            <button class="btn__text js-modalFactory-close" @click="closeModal" aria-label="Fechar modal">
+               <i class="icon icon-close"></i>
             </button>
 
             <slot></slot>
@@ -48,7 +48,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: #FFFFFF;
-      padding: 48px;
+      padding: 48px 32px;
       border-radius: 6px;
       z-index: 30;        
    }
@@ -66,13 +66,14 @@
 
    .js-modalFactory-close {
       position: absolute;
-      top: 8px;
+      top: 15px;
       right: 32px;
       color: #262E32;
       cursor: pointer;
 
       .icon {
-         font-size: 2.2rem;
+         font-size: 1.2rem;
+         font-weight: 600;
       }
    }   
 

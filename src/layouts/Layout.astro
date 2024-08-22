@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import '../styles/global.scss'
 ---
 
 <!doctype html>
@@ -17,7 +19,7 @@ const { title } = Astro.props;
 		<link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<link href="/site.webmanifest">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -26,90 +28,3 @@ const { title } = Astro.props;
 		<slot />		
 	</body>
 </html>
-
-<style is:global>
-	@charset "UTF-8";
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}	
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-
-	html {
-		font-family: 'Raleway', sans-serif;
-		line-height: 1;
-	}	
-
-	p {
-		line-height: 1.2;
-	}
-
-	.container {
-		max-width: 1440px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.btn {
-		border-radius: 8px;
-		font-weight: 700;
-	}
-
-	.lineText {
-		position: relative;
-		padding-left: 20px;
-		&::before {
-			content: " ";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 2px;
-			height: 100%;
-			background-color: #FC2791;
-		}
-	}
-
-	.custom__title {
-		font-weight: 800;
-		text-transform: uppercase;
-		border-bottom: 2px solid #FC2791;
-		padding-top: 4px;
-	}
-
-	iframe {
-		width: 100%;
-		height: 100%;
-		min-height: 350px;
-	}
-
-	.is__desktop {
-		display: none;
-	}
-
-	@media (screen(md)) {
-		.is__mobile {
-			display: none;
-		}
-		.is__desktop {
-			display: initial;
-		}
-	}
-
-</style>
