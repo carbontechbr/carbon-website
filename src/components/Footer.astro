@@ -1,7 +1,11 @@
+---
+import SocialMidiaLinks from "./SocialMidiaLinks.astro";
+---
+
 <footer>
 
 	<div class="footer__content bg-primary pt-8 md:pt-10 pb-6">
-		<span class="footer__btnToTop"></span>
+		<button class="footer__btnToTop" aria-label="Voltar ao topo"><i class="icon-angle-up"></i> </button>
 
 		<div class="container px-4 2xl:px-0">
 
@@ -12,7 +16,7 @@
 						<img src="/carbon-footer-logo.svg" alt="Carbon Tech Logo Footer">
 					</div>
 
-					<div class="footer__address">
+					<div class="footer__address mb-8">
 						<p class="footer__ad footer__adStreet text-white mb-5 text-[0.875rem]">
 							Rua dos Pinheiros, 498 - Pinheiros
 						</p>
@@ -26,37 +30,11 @@
 					</div>
 
 					<div class="footer__socialMidia">
-						<ul class="socialMidia">
-							<li class="socialMidia__item">
-								<a href="" title="Facebook" target="_blank" rel="noopener noreferrer">
-									<i class="socialMidia__icon"></i>
-								</a>
-
-							</li>
-							<li class="socialMidia__item">
-								<a href="" title="Facebook" target="_blank" rel="noopener noreferrer">
-									<i class="socialMidia__icon"></i>
-								</a>
-
-							</li>
-							<li class="socialMidia__item">
-								<a href="" title="Facebook" target="_blank" rel="noopener noreferrer">
-									<i class="socialMidia__icon"></i>
-								</a>
-
-							</li>
-							<li class="socialMidia__item">
-								<a href="" title="Facebook" target="_blank" rel="noopener noreferrer">
-									<i class="socialMidia__icon"></i>
-								</a>
-
-							</li>
-						</ul>
-
+						<SocialMidiaLinks />
 					</div>
 				</div>
 
-				<div class="footer__menu flex-auto md:pt-4">
+				<div class="footer__menu flex-auto md:pt-4 my-10 md:my-0">
 					<div class="footer__menuWrap lg:flex md:gap-8">
 
 						<div class="footer__menuSection md:grow">
@@ -136,7 +114,7 @@
 								<ul class="footer__menuItems">
 									<li class="footer__menuItem">
 										<a href="" class="footer__link text-[0.875rem]">
-											Sobre nós
+											Sobre
 										</a>
 									</li>
 
@@ -175,8 +153,45 @@
 
 </footer>
 
+<script>
+
+	const btnScroll = document.querySelector('.footer__btnToTop');
+
+	btnScroll.addEventListener('click', () => {
+		console.log('tesdf');
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+</script>
+
 
 <style lang="scss">
+
+	.footer__content {
+		position: relative;
+	}
+
+	.footer__btnToTop {
+		position: absolute;
+		top: -25px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 50px;
+		height: 50px;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #FFFFFF;
+		border: 8px solid var(--primary-color);
+		border-radius: 100%;
+
+		i::before {
+			font-size: 1.8rem;
+			color: var(--secondary-color);
+		}
+	} 
 
 	.footer__title {
 		font-weight: 800;
@@ -203,6 +218,21 @@
 		}
 	}
 
+	.footer__socialMidia {
+		:global(.socialMidia) {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 32px;
+			margin: 16px 0;					
+		}	
+		
+		:global(.socialMidia__icon) {
+			color: #FFFFFF;
+			font-size: 1.2rem;
+		}
+	}
+
 
 	@media(screen(md)) {
 
@@ -214,6 +244,18 @@
 			max-width: 920px;
 		}
 
+		.footer__btnToTop {
+			top: -50px;
+			width: 100px;
+			height: 100px;	
+			i {
+				position: relative;
+				top: -4px;
+				&::before {
+					font-size: 3.5rem;
+				}			
+			}
+		} 
 	}
 	
 </style>
