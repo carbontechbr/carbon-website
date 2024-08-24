@@ -15,17 +15,91 @@
 
 			<div class="newsletter__form md:w-1/2 md:pt-5">
 				<form name="newsForm">
-					<div class="newsletter__inptButton">
-						<input type="text" name="email" id="email" class="newsletter__inptEmail" placeholder="Entre seu e-mail">
+					<div class="newsletter__inptButton js-validate">
+						<input type="email" name="email" id="email" class="newsletter__inptEmail" placeholder="Entre seu e-mail" required>
 						<label for="email" class="text-white"></label>
 						<button class="js-newsletter newsletter__btnSubmit text-primary px-4 md:px-6">Assinar</button>
-						<span class="newsletter__formError"></span>
+						<span class="newsletter__formError">Campo obrigatório</span>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	
+	import { isEmail } from "../helpers/form";
+
+	let time = 0;
+	const snackBar = document.querySelector('.snackbar');
+	const btnSubmit = document.querySelector('.js-newsletter');	
+
+	btnSubmit.addEventListener('click', async (e) => {
+		e.preventDefault();
+
+		const newsForm = document.querySelector('form[name="newsForm"]');
+		const fields = newsForm.querySelectorAll('[required]');
+		let hasError = false;
+
+		for(let field of fields){
+			field.closest('.js-validate').classList.remove('is__error');	
+
+			if(field.value.trim() === ""){
+				field.closest('.js-validate').classList.add('is__error');
+				hasError = true;				
+			}
+
+			if(field.type == "email" &&  field.value.trim() !== "" && !isEmail(field.value)) {
+				field.closest('.js-validate').classList.add('is__error');
+				field.closest('.js-validate').querySelector('.newsletter__formError').innerHTML = 'E-mail inválido';
+				hasError = true;	
+			}
+		}
+
+		if(!hasError) {
+
+			clearTimeout(time);
+
+			btnSubmit.setAttribute('disabled', true);
+
+			const { email } = newsForm;
+
+			fetch('https://enx3n0dz7s8ms.x.pipedream.net', {
+				method: 'POST',
+				headers: {
+					"Content-Type": 'application/json'
+				},
+				body: JSON.stringify({					
+					email: email.value
+				})				
+			})
+			.then((res) => res.json())
+			.then((data) => {
+				if(data.success) {
+					snackBar.classList.add('snackbar--success', 'show');
+					snackBar.querySelector('.snack__message').innerHTML = 'Cadastro realizado com sucesso!';					
+
+					time = setTimeout(() => {
+						snackBar.classList.remove('snackbar--success', 'show');
+					},4000);
+
+					newsForm.reset();
+					btnSubmit.removeAttribute("disabled");
+				}				
+			})
+			.catch((e) => {
+				const err = document.querySelector('.js-validate');
+				if(err.length) {
+					err.classList.remove('is__error');
+				}
+				console.error(e);
+				newsForm.reset();
+				btnSubmit.removeAttribute("disabled");
+			})			
+		}	
+	});
+</script>
 
 <style lang="scss">
 
@@ -89,6 +163,30 @@
 			border-radius: 0 8px 8px 0;
 		}
 
+		&__formError {
+			position: absolute;
+			bottom: -25px;
+			font-size: .75rem;
+			color: #FFFFFF;
+			opacity: 0;
+			visibility: hidden;
+		}
+		
+		&__inptButton {
+			&.is__error {
+				.newsletter__formError{
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	.js-newsletter {
+		&:disabled {
+			background: #CCCCCC;
+			transition: background .5s;
+		}
 	}
 
 	@media(screen(md)) {

@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<"input"> {
 const { label, ...props } = Astro.props;
 ---
 
-<div class="inputField mb-4">
+<div class="inputField mb-4 js-validate">
 	<input class:list={["inputField__input", Astro.props.class]} {...props} />
 	<label for={props.id} class="inputField__label">{label}</label>
 	<span class="inputField__error">Campo obrigatório</span>
