@@ -28,3 +28,23 @@ import '../styles/global.scss'
 		<slot />		
 	</body>
 </html>
+
+<script>
+
+	const sections =  document.querySelectorAll('a[href*="#"]');
+
+	sections.forEach(function(e){
+
+		e.addEventListener('click', () => {
+
+			const btnMenu = document.querySelector('.btnMenu.active');
+			const mobileMenu = document.querySelector('.header__contentMenu.active');
+
+			if(btnMenu) {
+				btnMenu.classList.remove('active');
+				mobileMenu.classList.remove('active');
+			}
+		});
+	});	
+
+</script>

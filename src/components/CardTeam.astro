@@ -50,6 +50,17 @@ const { photo,name,role,description } = Astro.props;
 		line-height: 1.4;
 	}
 
+	@media (min-width: 480px) {
+		.team__cards {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+		}
+		.cardTeam{
+			width: calc((100% / 2) - 8px);
+		}
+	}
+
 	@media(screen(md)) {
 
 		.cardTeam__name {

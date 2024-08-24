@@ -7,9 +7,9 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 	<div class="footer__content bg-primary pt-8 md:pt-10 pb-6">
 		<button class="footer__btnToTop" aria-label="Voltar ao topo"><i class="icon-angle-up"></i> </button>
 
-		<div class="container px-4 2xl:px-0">
+		<div class="container px-4 2xl:px-0" style="max-width: 460px;">
 
-			<div class="footer__wrap md:pt-12 lg:flex md:justify-between">
+			<div class="footer__wrap md:pt-12 lg:flex md:justify-between md:gap-14">
 
 				<div class="footer__logoSocial">
 					<div class="footer__logo mb-5 md:mb-8">
@@ -37,7 +37,7 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 				<div class="footer__menu flex-auto md:pt-4 my-10 md:my-0">
 					<div class="footer__menuWrap lg:flex md:gap-8">
 
-						<div class="footer__menuSection md:grow">
+						<div class="footer__menuSection md:grow hidden">
 							<section>
 								<h3 class="footer__title text-white mb-4">
 									Educação
@@ -68,7 +68,7 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 							</section>
 						</div>
 
-						<div class="footer__menuSection md:grow">
+						<div class="footer__menuSection md:grow hidden">
 							<section>
 								<h3 class="footer__title text-white mb-4">
 									Negócio
@@ -84,7 +84,7 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 							</section>
 						</div>
 
-						<div class="footer__menuSection md:grow">
+						<div class="footer__menuSection md:grow hidden">
 							<section>
 								<h3 class="footer__title text-white mb-4">
 									Developer & IT
@@ -113,18 +113,18 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 
 								<ul class="footer__menuItems">
 									<li class="footer__menuItem">
-										<a href="" class="footer__link text-[0.875rem]">
+										<a href="#team" class="footer__link text-[0.875rem]">
 											Sobre
 										</a>
 									</li>
 
-									<li class="footer__menuItem">
+									<li class="footer__menuItem hidden">
 										<a href="" class="footer__link text-[0.875rem]">
 											Contate-nos
 										</a>
 									</li>
 
-									<li class="footer__menuItem">
+									<li class="footer__menuItem hidden">
 										<a href="" class="footer__link text-[0.875rem]">
 											Carreira
 										</a>
