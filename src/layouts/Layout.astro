@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 interface Props {
 	title: string;
 }
@@ -25,7 +27,16 @@ import '../styles/global.scss'
 		<title>{title}</title>
 	</head>
 	<body>
+		<Header />
 		<slot />		
+		<Footer />
+
+		<div class="snackbar">
+			<div class="snack__icon"></div>
+			<div class="snack__message"></div>
+			<div class="snack__close"></div>
+		</div>
+		
 	</body>
 </html>
 
@@ -46,5 +57,12 @@ import '../styles/global.scss'
 			}
 		});
 	});	
+
+	const snackBar = document.querySelector('.snackbar');
+	const snackClose = document.querySelector('.snack__close');
+
+	snackClose.addEventListener('click', () => {
+		snackBar.classList.remove('snackbar--success', 'snackbar--error','show');
+	});
 
 </script>

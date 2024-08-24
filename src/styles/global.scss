@@ -73,6 +73,89 @@ iframe {
    display: none;
 }
 
+.snackbar {
+   position: fixed;
+   left: 16px;
+   bottom: 16px;
+   visibility: hidden;
+   display: flex;
+   gap: 16px;
+   min-width: 180px;
+   background-color: #CCCCCC;
+   color: #FFFFFF;
+   text-align: center;
+   border-radius: 4px;
+   padding: 16px;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 99;
+
+   .snack__icon {
+      margin-right: 8px;
+      &:before {
+         font-family: 'icomoon';
+         font-size: 18px;
+         font-weight: normal;
+      }
+   }
+
+   .snack__close {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      
+      &:before {
+         font-family: 'icomoon';
+         content: '\e98f';
+         font-size: 1.2rem;
+         font-weight: normal;
+         color: #ffffff;
+      }
+   }
+
+   &--success {
+      background-color:rgb(80, 117, 80);
+      .snack__icon:before {
+         font-family: 'Raleway';
+         content: ':)';
+      }
+   }
+   &--error {
+      background-color: rgb(226, 96, 96);
+      .snack__icon:before {
+         font-family: 'Raleway';
+         content: ':(';
+      }
+   }
+   &--info {
+      background-color: #495861;
+      .snack__icon:before {
+         font-family: 'Raleway';
+         content: '!';
+      }
+   }
+}
+
+.snack__message {
+   color: #FFFFFF;
+   font-size: .875rem;
+}
+
+.snackbar.show {
+   visibility: visible;
+   animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+   from {bottom: 0; opacity: 0;}
+   to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+   from {bottom: 30px; opacity: 1;}
+   to {bottom: 0; opacity: 0;}
+}
+
 @media (screen(md)) {
    .is__mobile {
       display: none;

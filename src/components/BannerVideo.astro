@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import Modal from "./Modal.vue"
 ---
 <div class="bannerVideo" id="video">
@@ -16,18 +17,18 @@ import Modal from "./Modal.vue"
 				</div>
 
 				<div class="bannerVideo__thumb text-center pb-8 lg:pb-12 js-videoPlay">
-					<img src="/video-player.webp" alt="Imagem background video" width="1400" height="200">
+					<Image src="/images/video-player.webp" alt="Imagem background video" width="1400" height="200" />
 				</div>
 			</section>
 	
 		</div>
 	</div>
 	<div class="bannerVideo__bg">
-		<img src="/video-bg.webp" alt="Imagem background video" width="1920" height="558">
+		<Image src="/images/video-bg.webp" alt="Imagem background video" width="1920" height="558" />
 	</div>
 
 	<Modal client:load>
-		<iframe class="y-video" width="560" height="315" src="https://www.youtube.com/embed/ZK-rNEhJIDs?si=of_81BMsB5uZZeKN&enablejsapi=1" title="Video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>		
+		<iframe class="y-video" loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/ZK-rNEhJIDs?si=of_81BMsB5uZZeKN&enablejsapi=1" title="Video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>		
 	</Modal>
 
 </div>
