@@ -1,6 +1,8 @@
 ---
 import InputField from "./InputField.astro";
 import SocialMidiaLinks from "./SocialMidiaLinks.astro";
+
+export const prerender = false;
 ---
 
 <div class="contactForm py-8 md:py-12">
@@ -23,22 +25,22 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 
 			</div>
 
-			<div class="contactForm__formContent py-8">
-				<form name="frmContact">
-					<div class="contactForm__inputWrap">
-						<InputField label="Seu nome" type="text" id="inpt_name" />
-						<InputField label="Endereço de e-mail" type="email" id="inpt_email" />
-						<InputField label="Telefone (opcional)" type="text" id="inpt_telefone" />
+			<div class="contactForm__formContent py-8">	
+				<form name="frmContact" method="post">
+					<div class="contactForm__inputWrap py-4">
+						<InputField label="Seu nome" type="text" name="name" id="inpt_name" required />
+						<InputField label="Endereço de e-mail" name="email" type="email" id="inpt_email" required />
+						<InputField label="Telefone (opcional)" name="phone" type="tel" id="inpt_phone" maxlength="18" />
 					</div>
 
-					<div class="textArea my-5">
-						<textarea name="area_message" id="contacMessage" class="textArea__content"></textarea>				
+					<div class="textArea js-validate py-5">
+						<textarea name="message" id="contacMessage" class="textArea__content" required></textarea>				
 						<label for="contacMessage" class="txtArea__label">Descreva da melhor forma qual seu objetivo em seu negócio</label>
 						<span class="textArea__error">Campo obrigatório</span>
 					</div>
 
 					<div class="contactFrom__btnSubmit">
-						<button class="btn bg-secondary text-white p-4 lg:p-8">
+						<button class="btn js-submit bg-secondary text-white p-4 lg:p-8">
 							<span class="inline-flex gap-4 items-center">
 								Enviar mensagem <i class="icon-arrow-right"></i>
 							</span>
@@ -54,6 +56,91 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 </div>
 
 
+<script>
+
+	import { isEmail } from "../helpers/form";
+
+	const btnSubmit = document.querySelector('.js-submit');	
+	let time = 0;
+
+	btnSubmit.addEventListener('click', async (e) => {
+		e.preventDefault();
+
+		const contactForm = document.querySelector('form[name="frmContact"]');
+		const fields = contactForm.querySelectorAll('[required]');
+		let hasError = false;
+
+		for(let field of fields){
+			field.closest('.js-validate').classList.remove('is__error');	
+
+			if(field.value.trim() === ""){
+				field.closest('.js-validate').classList.add('is__error');
+				hasError = true;				
+			}
+
+			if(field.type == "email" &&  field.value.trim() !== "" && !isEmail(field.value)) {
+				field.closest('.js-validate').classList.add('is__error');
+				field.closest('.js-validate').querySelector('.inputField__error').innerHTML = 'E-mail inválido';
+				hasError = true;	
+			}
+		}
+
+		if(!hasError) {
+			clearTimeout(time);
+
+			btnSubmit.setAttribute('disabled', true);
+
+			const snackBar = document.querySelector('.snackbar');
+			const { name, email, phone, message } = contactForm;
+
+			fetch('https://enx3n0dz7s8ms.x.pipedream.net', {
+				method: 'POST',
+				headers: {
+            	"Content-Type": 'application/json'
+            },
+				body: JSON.stringify({
+					nome: name.value,
+					email: email.value,
+					phone: phone.value,
+					message: message.value
+				})
+			})
+			.then((res) => res.json())
+			.then((data) => {
+				if(data.success) {
+					snackBar.classList.add('snackbar--success', 'show');
+					snackBar.querySelector('.snack__message').innerHTML = 'Enviado com sucesso!';					
+
+					time = setTimeout(() => {
+						snackBar.classList.remove('snackbar--success', 'show');
+					},4000);
+
+					contactForm.reset();
+					btnSubmit.removeAttribute("disabled");
+				}
+			})
+			.catch((e) => {
+				const err = document.querySelectorAll('.js-validate');
+
+				if(err.length){
+					for(let er of err) {
+						er.classList.remove('is__error');	
+					}					
+				}
+
+				contactForm.reset();
+				btnSubmit.removeAttribute("disabled");
+			});			
+		}	
+	});
+
+	document.getElementById('inpt_phone').addEventListener('input', function (e) {	
+		e.target.value = e.target.value.replace(/\D/g, '');
+	});
+
+</script>
+
+
 <style lang="scss">
 
 	.contactForm__title {
@@ -67,38 +154,36 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 	}
 
 	.textArea {
-		position: relative;
-
-		&__label {
-			display: block;
-		}
+		position: relative;	
 
 		&__content {
 			width: 100%;
+			min-height: 160px;
 			border: 0;
 			border-bottom: 1px solid #cacaca;
 			display: block;
-			padding: 40px 10px 10px;
+			padding: 10px;
 			background-color: transparent;
+			line-height: 1.4;
 			color: #262E32;
 
 			&:focus {
 				outline: none;
 				border-color: var(--secondary-color);
 			}
-
+			
 			~ label {
 				position: absolute;
 				left: 10px;
 				width: 100%;
-				top: 9px;
+				top:-35px;
 				color: #495861;
 				transition: 0.3s;
 				letter-spacing: 0.5px;
 			}
 
 			&:focus ~ label {
-				top: -4px;
+				top: -15px;
 				font-size: 0.875rem;
 				color: var(--secondary-color);
 				transition: 0.3s;
@@ -114,12 +199,19 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 		}
 
 		&.is__error {
-			.inputField__error {
+			.textArea__error{
 				opacity: 1;
 				visibility: visible;
 			}
 		}
   	}
+
+	.js-submit {
+		&:disabled {
+			background: #CCCCCC;
+			transition: background .5s;
+		}
+	}
 
 	.contactForm__socialText {
 		position: relative;
@@ -131,17 +223,22 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 			right: 0;
 			display: flex;
 			flex-direction: column;
-			gap: 30px;		
+			gap: 16px;		
 			color: #1E2532;
 		}
 
 		:global(.socialMidia__item a){
-			padding: 8px;
+			width: 35px;
+			height: 35px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
 			border: 1px solid #B7B7B7;
 			border-radius: 100%;	
 		}
 		:global(.socialMidia__icon::before){		
 			color: #1E2532;
+			font-size: 0.875rem;
 		}
 	}
 
@@ -160,6 +257,21 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 				}
 			}
 		}
+		.textArea {
+		
+			&__content {
+				min-height: 145px;
+				~ label {
+					font-size: 1.2rem;
+					top: -15px;
+				}
+
+				&:focus ~ label {
+					top: -15px;		
+					font-size: 1.2rem;		
+				}
+			}
+		}
 	}
 
 	@media (screen(lg)) {
@@ -170,11 +282,16 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 		.contactForm__socialText {
 
 			:global(.socialMidia) {	
-				gap: 48px;	
+				gap: 30px;	
 			}
 
 			:global(.socialMidia__item a){
-				padding: 15px;	
+				width: 50px;
+				height: 50px;				
+			}
+
+			:global(.socialMidia__icon::before){		
+				font-size: 1rem;
 			}
 		}
 	}

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	title: string;
 	titleSpan: string;
@@ -14,7 +16,7 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 	<div class="bannerHero__content">
 		<section class="container px-4 2xl:px-0">
 
-			<div class="bannerHero__textImg sm:flex sm:justify-between sm:items-center">
+			<div class="bannerHero__textImg py-8 md:py-2 sm:flex sm:justify-between sm:items-center">
 				<div class="bannerHero__wrapText my-4">
 					<h2 class="bannerHero__title text-secondary text-[1.375rem] xl:text-[3rem] mb-4 md:mb-8">
 						{title} <span class="text-white">{titleSpan}</span>
@@ -31,17 +33,17 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 				</div>
 
 				<div class="bannerHero__img">
-					<img src={asset} alt="Image Banner Hero" width="1920" height="620" class="anime__img">
+					<Image src={asset} alt="Image Banner Hero" width="1920" height="620" class="anime__img" />
 
 				</div>
-			</div>
-			
+			</div>			
 		</section>
+	</div>
 
-	</div>
 	<div class="bannerHero__bg">
-		<img src="/herobg.jpeg" alt="Background Banner Hero">
+		<Image src="/images/herobg.jpeg" alt="Background Banner Hero" width="1920" height="620" />
 	</div>
+
 </div>
 
 <style lang="scss">
@@ -54,52 +56,60 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 		100% { transform: translateY(-10px); }
 	}
 
-
 	.bannerHero {
 		position: relative;
-	}
 
-	.bannerHero__content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 2;
-	}
-
-	.bannerHero__bg {
-		img {
-			aspect-ratio: 4/3;
+		&__textImg {
+			position: relative;
+			z-index: 2;
 		}
-	}
 
-	.bannerHero__img {
-		img {
-			width: 20%;
-		}
-	}
+		&__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;		
 
-	.bannerHero__title {
-		font-weight: 800;
-		line-height: 1;
-
-		span {
-			display: block;
-		}
-	}
-
-	@media(screen(sm)) {	
-		.bannerHero__bg {
 			img {
-				aspect-ratio: 2 / 1;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 		}
-		.bannerHero__img {
-			display: flex;
-			justify-content: right;
+
+		&__img {
+			margin-top: 8px;
 			img {
-				width: 60%;
+				width: 20%;
+			}
+		}
+
+		&__title {
+			font-weight: 800;
+			line-height: 1;
+
+			span {
+				display: block;
+			}
+		}
+	}	
+
+	@media(screen(sm)) {	
+		.bannerHero {
+			&__bg {
+				img {
+					// aspect-ratio: 2 / 1;
+				}
+			}
+
+			&__img {
+				display: flex;
+				justify-content: right;
+				img {
+					width: 60%;
+				}
 			}
 		}
 	}
@@ -108,7 +118,7 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 
 		.bannerHero__bg {
 			img {
-				aspect-ratio: auto;
+				// aspect-ratio: auto;
 			}
 		}
 

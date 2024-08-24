@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	photo: string;
 	name: string,
@@ -14,7 +16,7 @@ const { photo,name,role,description } = Astro.props;
 	<article>
 		<div class="cardTeam__figure mb-4">
 			<figure>
-				<img src={photo} alt={name}>
+				<Image src={photo} alt={name} width="350" height="250" />
 			</figure>
 		</div>
 		<h3 class="cardTeam__name text-primary mb-2">{name}</h3>

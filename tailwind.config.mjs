@@ -23,7 +23,6 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				josefin: ['Josefin Sans', 'sans-serif'],
 				raleway: ['Raleway', 'sans-serif',...defaultTheme.fontFamily.sans]
 			},
 		},
