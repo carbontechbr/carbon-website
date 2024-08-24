@@ -30,5 +30,22 @@ import '../styles/global.scss'
 		<Header />
 		<slot />		
 		<Footer />
+
+		<div class="snackbar">
+			<div class="snack__icon"></div>
+			<div class="snack__message"></div>
+			<div class="snack__close"></div>
+		</div>
+		
 	</body>
 </html>
+
+<script>
+	const snackBar = document.querySelector('.snackbar');
+	const snackClose = document.querySelector('.snack__close');
+
+	snackClose.addEventListener('click', () => {
+		snackBar.classList.remove('snackbar--success', 'snackbar--error','show');
+	});
+
+</script>
