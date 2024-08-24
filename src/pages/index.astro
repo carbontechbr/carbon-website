@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import BannerHero from '../components/BannerHero.astro';
 import Team from '../components/Team.astro';
 import Skills from '../components/Skills.astro';
@@ -8,31 +7,23 @@ import BannerVideo from '../components/BannerVideo.astro';
 import ContactForm from '../components/ContactForm.astro';
 import ContactInformation from '../components/ContactInformation.astro';
 import Newsletter from '../components/Newsletter.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout title='Carbon Tech - Talento e Experiência em E-commerce'>
-	<Header />
-		<main>
-			<BannerHero 
-				title='Talento e Experiência' 
-				titleSpan='em E-commerce' 
-				subtitle='Conte com a equipe que construiu alguns dos mais bem sucedidos e-commerces brasileiros.'
-				buttonText='Vamos transformar juntos'
-				asset='/mascote-animation.png' 
-			/>
+	<main>
+		<BannerHero 
+			title='Talento e Experiência' 
+			titleSpan='em E-commerce' 
+			subtitle='Conte com a equipe que construiu alguns dos mais bem sucedidos e-commerces brasileiros.'
+			buttonText='Vamos transformar juntos'
+			asset='/images/mascote-animation.png' 
+		/>
 
-			<Team />
-			<Skills />
-			<BannerVideo />
-			<ContactForm />
-			<ContactInformation />
-			<Newsletter />
-		</main>
-	<Footer />
-		
+		<Team />
+		<Skills />
+		<BannerVideo />
+		<ContactForm />
+		<ContactInformation />
+		<Newsletter />
+	</main>
 </Layout>
-
-<style lang="scss">
-	
-</style>
