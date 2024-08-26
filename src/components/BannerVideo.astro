@@ -5,8 +5,8 @@ import Modal from "./Modal.vue"
 <div class="bannerVideo" id="video">
 	<div class="bannerVideo__content">
 		<div class="container px-4 2xl:px-0">
-			<section>
-				<div class="bannerVideo__textWrap py-6 lg:py-12 text-center">
+			<section class="md:flex md:items-center">
+				<div class="bannerVideo__textWrap py-6 lg:py-12 md:w-2/4">
 					<h2 class="bannerVideo__title text-white mb-4 lg:mt-8">
 						Aumente sua Taxa de Conversão
 					</h2>
@@ -16,33 +16,18 @@ import Modal from "./Modal.vue"
 					</p>
 				</div>
 
-				<div class="bannerVideo__thumb text-center pb-8 lg:pb-12 js-videoPlay">
-					<Image src="/images/video-player.webp" alt="Imagem background video" width="1400" height="200" />
+				<div class="bannerVideo__appMockup md:w-2/4 overflow-hidden">
+					<Image src="/images/app-mockup-phone-compress.gif" alt="Aplicativo Cabon Pay" width="800" height="600" class="scale-150" />
 				</div>
 			</section>
 	
 		</div>
 	</div>
 	<div class="bannerVideo__bg">
-		<Image src="/images/video-bg.webp" alt="Imagem background video" width="1920" height="558" />
+		<Image src="/images/app-background.png" alt="Imagem background video" width="1920" height="558" />
 	</div>
 
-	<Modal client:load>
-		<iframe class="y-video" loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/ZK-rNEhJIDs?si=of_81BMsB5uZZeKN&enablejsapi=1" title="Video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>		
-	</Modal>
-
 </div>
-
-<script>
-
-	const playVideo = document.querySelector('.js-videoPlay');
-	const modalContent = document.querySelector('.modal__content');
-
-	playVideo.addEventListener('click', () => {
-		modalContent.classList.add('is__show');
-	});
-
-</script>
 
 <style lang="scss">
 
@@ -109,7 +94,7 @@ import Modal from "./Modal.vue"
 	@media(screen(2xl)) {	
 		.bannerVideo {		
 			&__title {
-				font-size:5.375rem ;
+				font-size:4.75rem ;
 			}
 		}			
 	}
