@@ -1,10 +1,25 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
 <div class="header__langButton md:flex md:gap-4 md:flex-wrap md:items-center">
-	<div class="header__language hidden">
+	<div class="header__language relative">
+		<div class="header__language--selected">
+			<div class={'cursor-pointer langList__item lang--'+lang}>  <span>{languages[lang]}</span> </div>
+		</div>
 		<section>
 			<nav>
-				<ul class="langList">
-					<li class="langList__item">
-						<span class="text-primary">Português</span>
+				<ul class="langList absolute z-10 bg-white">
+					<li class={'langList__item lang--en'}>
+						<span class="text-primary">{t('lang.us')}	</span>
+					</li>
+
+					<li class={'langList__item lang--pt'}>
+						<span class="text-primary">{t('lang.br')}	</span>
 					</li>
 				</ul>
 			</nav>
@@ -13,7 +28,7 @@
 
 	<div class="header__buttonCta">
 		<a href="#contact" class="btn header__contactBtn bg-secondary p-2 text-white">
-			Fale conosco
+			{t('nav.contact.us')}	
 		</a>
 
 	</div>
@@ -30,12 +45,16 @@
 			align-items: center;
 
 			&::before {
-				content: url('/images/lang-br.png');
+				content: " ";
 				margin: 0 8px;
 				border-radius: 8px;
 				overflow: hidden;
 				width: 28px;
-			}
+				height: 24px;
+				background-image: url('/images/flag-br.png');
+				background-size: contain;
+				background-repeat: no-repeat;
+			}	
 
 			&::after {
 				content: "\e900";
@@ -47,6 +66,15 @@
 				width: 10px;
 				height: 10px;
 			}	
+		}
+
+		&.lang--en {
+			span {
+				&::before {
+					// content: url('/images/flag-us.png');
+					background-image: url('/images/flag-us.png');
+				}
+			}
 		}
 	}
 

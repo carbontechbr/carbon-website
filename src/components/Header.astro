@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import LanguageCta from './LanguageCta.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 ---
 
@@ -28,7 +32,7 @@ import LanguageCta from './LanguageCta.astro';
 							<li class="header__menuItem">
 								<a href="#service">
 									<span>
-										Serviços									
+										{t('nav.service')}								
 									</span>
 								</a>
 							</li>
@@ -42,7 +46,7 @@ import LanguageCta from './LanguageCta.astro';
 							<li class="header__menuItem">
 								<a href="#video">
 									<span>
-										Como Fazemos
+										{t('nav.how.we.do')}
 									</span>
 								</a>
 							</li>
