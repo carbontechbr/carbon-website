@@ -95,7 +95,7 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 				height: 100%;
 				object-fit: cover;
 				animation-name: scaling;
-				animation-duration: 8s;
+				animation-duration: 10s;
 				animation-timing-function: ease-in-out;
 				animation-iteration-count: infinite;
 				animation-direction: alternate;
@@ -121,12 +121,7 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 	}	
 
 	@media(screen(sm)) {	
-		.bannerHero {
-			&__bg {
-				img {
-					// aspect-ratio: 2 / 1;
-				}
-			}
+		.bannerHero {			
 
 			&__img {
 				display: flex;
@@ -140,16 +135,10 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 
 	@media(screen(md)) {		
 
-		.bannerHero__bg {
-			img {
-				// aspect-ratio: auto;
-			}
-		}
-
+		
 		.bannerHero__wrapText {
 			max-width: 560px;
 		}
-
 
 		.bannerHero__subtitle {
 			font-size: 1.25rem;
