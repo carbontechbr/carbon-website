@@ -68,6 +68,7 @@ export const prerender = false;
 
 		const contactForm = document.querySelector('form[name="frmContact"]');
 		const fields = contactForm.querySelectorAll('[required]');
+		const formData = new FormData(contactForm);
 		let hasError = false;
 
 		for(let field of fields){
@@ -91,33 +92,22 @@ export const prerender = false;
 			btnSubmit.setAttribute('disabled', true);
 
 			const snackBar = document.querySelector('.snackbar');
-			const { name, email, phone, message } = contactForm;
 
-			fetch('https://enx3n0dz7s8ms.x.pipedream.net', {
-				method: 'POST',
-				headers: {
-            	"Content-Type": 'application/json'
-            },
-				body: JSON.stringify({
-					nome: name.value,
-					email: email.value,
-					phone: phone.value,
-					message: message.value
-				})
+			fetch("/", {
+				method: "POST",
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				body: new URLSearchParams(formData).toString(),
 			})
-			.then((res) => res.json())
-			.then((data) => {
-				if(data.success) {
-					snackBar.classList.add('snackbar--success', 'show');
-					snackBar.querySelector('.snack__message').innerHTML = 'Enviado com sucesso!';					
+			.then(() => {			
+				snackBar.classList.add('snackbar--success', 'show');
+				snackBar.querySelector('.snack__message').innerHTML = 'Enviado com sucesso!';					
 
-					time = setTimeout(() => {
-						snackBar.classList.remove('snackbar--success', 'show');
-					},4000);
+				time = setTimeout(() => {
+					snackBar.classList.remove('snackbar--success', 'show');
+				},4000);
 
-					contactForm.reset();
-					btnSubmit.removeAttribute("disabled");
-				}
+				contactForm.reset();
+				btnSubmit.removeAttribute("disabled");				
 			})
 			.catch((e) => {
 				const err = document.querySelectorAll('.js-validate');
