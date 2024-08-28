@@ -21,11 +21,11 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 						<p class="footer__ad footer__adStreet text-white mb-5 text-[0.875rem]">
 							Rua dos Pinheiros, 498 - Pinheiros
 						</p>
-						<p class="footer__ad  footer__adPhone text-white mb-5 text-[0.875rem]">
+						<p class="footer__ad  footer__adPhone text-white mb-5 text-[0.875rem] hidden">
 							<a href="https://wa.me/5511955895548" class="text-white" target="_blank" rel="noopener noreferrer">Telefone/Whatsapp: +55 95589-5548</a>
 						</p>
 						<p class="footer__ad  footer__addEmail text-white mb-5 text-[0.875rem]">
-							<a href="mailto:contato@carbontech.com.br" class="text-white">Email: contato@carbontech.com.br</a>	
+							<a href="mailto:contato@carbontech.digital" class="text-white">Email: contato@carbontech.digital</a>	
 						</p>
 
 					</div>
@@ -145,7 +145,7 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 		<div class="container px-4 2xl:px-0">
 			<div class="text-center">
 				<p class="footer__copyText text-white text-[0.875rem]">
-					© Copyright <strong>Carbon Tech</strong> Todos os direitos reservados
+					© Copyright <strong>CARBON TECH</strong> Todos os direitos reservados
 				</p>
 			</div>
 		</div>
@@ -257,6 +257,12 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 				}			
 			}
 		} 
+
+		.footer__socialMidia {
+			:global(.socialMidia) {
+				justify-content: center;									
+			}	
+		}
 	}
 	
 </style>
