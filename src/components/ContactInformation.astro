@@ -1,3 +1,10 @@
+---
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
 <div class="contactInformation py-6 md:py-20 bg-alabaster">
 	<div class="container px-4 2xl:px-0">
 		<section>
@@ -6,11 +13,11 @@
 				<div class="contactInformation__wrapCol md:flex md:gap-4 md:justify-between">
 					<div class="contactInformation__text">
 						<h3 class="custom__title text-primary inline-block mb-4">
-							Informações de contato
+							{i18n.CONTACT_INFO.TITLE}				
 						</h3>
 			
 						<p class="contactInformation__title text-primary my-4">
-							Estamos sempre felizes em ajudá-lo
+							{i18n.CONTACT_INFO.SHORT_DESCRIPTION}						
 						</p>
 
 					</div>
@@ -50,7 +57,7 @@
 
 						<div class="contactInformation__columns md:grow">
 							<h3 class="contactInformation__heading text-primary inline-block mb-4">
-								Endereço
+								{i18n.CONTACT_INFO.TITLE_ADDRESS}
 							</h3>
 
 							<p class="contactInformation__details text-primary mb-4">

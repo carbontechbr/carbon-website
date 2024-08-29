@@ -6,15 +6,20 @@ import Skills from '@/components/Skills.astro';
 import BannerVideo from '@/components/BannerVideo.astro';
 import ContactForm from '@/components/ContactForm.astro';
 import ContactInformation from '@/components/ContactInformation.astro';
+
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <Layout title='CARBON TECH - Talento e Experiência em E-commerce'>
 	<main>
 		<BannerHero 
-			title='Talento e Experiência' 
-			titleSpan='em E-commerce' 
-			subtitle='Conte com a equipe que construiu alguns dos mais bem sucedidos e-commerces brasileiros.'
-			buttonText='Vamos transformar juntos'
+			title={i18n.BANNER_HERO.TITLE}	
+			titleSpan={i18n.BANNER_HERO.TITLE_SPAN}	
+			subtitle={i18n.BANNER_HERO.SUBTITLE}	
+			buttonText={i18n.BANNER_HERO.BUTTON_TEXT}	
 			asset='/images/mascote-animation.png' 
 		/>
 

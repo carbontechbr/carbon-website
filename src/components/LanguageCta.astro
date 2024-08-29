@@ -1,6 +1,6 @@
 ---
-import { languages } from '../i18n/ui';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '@/i18n/ui';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -75,7 +75,6 @@ const t = useTranslations(lang);
 	.langList {
 		position: absolute;
 		background-color: #FFFFFF;
-		margin-top: 20px;
 		padding: 8px;
 		overflow: hidden;
 		display: none;
@@ -85,15 +84,6 @@ const t = useTranslations(lang);
 		&.active {
 			display: block;
 			animation: fade .4s ease-in-out;;
-		}
-
-		&::before {
-			content: " ";
-			position: absolute;
-			top: -20px;
-			width: 100%;
-			height: 20px;
-			display: block;
 		}
 
 		.langList__item {
@@ -151,5 +141,19 @@ const t = useTranslations(lang);
 
 	.header__contactBtn {
 		font-weight: 700;
+	}
+
+	@media (screen(md)) {
+		.langList {
+				margin-top: 20px;
+				&::before {
+				content: " ";
+				position: absolute;
+				top: -20px;
+				width: 100%;
+				height: 20px;
+				display: block;
+			}
+		}
 	}
 </style>
