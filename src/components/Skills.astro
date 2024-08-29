@@ -19,7 +19,7 @@ import { Image } from "astro:assets";
 			</div>
 
 			<div class="skill__brandsAnimation my-8">
-				<div class="skill__brands">
+				<div class="skill__brands autoplay">
 					<div class="skill__brandItem">
 						<Image src="/images/brand-audi.svg" alt="Audi" width="160" height="60" />
 					</div>
@@ -51,6 +51,8 @@ import { Image } from "astro:assets";
 
 	.skill__brandsAnimation {
 		position: relative;
+		display: flex;
+		flex-wrap: nowrap;
 		overflow-x: hidden;
 
 		&::before,
@@ -72,19 +74,36 @@ import { Image } from "astro:assets";
 			right: 0;
 			background: linear-gradient(to right,  rgba(248,248,248,0.44) 0%,rgba(248,248,248,0.44) 68%,rgba(255,255,255,1) 100%);
 		}
+
+		&:hover {
+			overflow-x: auto;
+
+			&::before,
+			&::after {
+				opacity: 0;
+			}
+			.autoplay {
+				animation-name: none;
+			}
+		}
 	}
 
 	.skill__brands {
+		flex-shrink: 0;
 		display: flex;
-		justify-content: center;
+		// justify-content: space-around;
+		flex-wrap: nowrap;
 		align-items: center;
+		min-width: 100%;
 		gap: 48px;
-		animation-name: brandScroll;
-		animation-duration: 12s;
-		animation-timing-function: ease-in-out;
-		animation-iteration-count: infinite;
-		animation-direction: alternate;
-		animation-delay: -1s;
+		&.autoplay {
+			animation-name: brandScroll;
+			animation-duration: 12s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-delay: -1s;			
+		}
 	}
 
 	.skill__brandItem {
@@ -106,6 +125,16 @@ import { Image } from "astro:assets";
 	@media(screen(md)) {		
 
 		.skill__brandsAnimation {
+			&:hover {
+				overflow-x: hidden;
+				&::before,
+				&::after {
+					opacity: 1;
+				}
+				.autoplay {
+					animation-name: brandScroll;
+				}
+			}
 			&::before,
 			&::after {		
 				width: 150px;	
