@@ -13,7 +13,7 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<Layout title='CARBON TECH - Talento e Experiência em E-commerce'>
+<Layout title='CARBON TECH - Talento e Experiência em E-commerce' description={i18n.TEAM.SHORT_DESCRIPTION}>
 	<main>
 		<BannerHero 
 			title={i18n.BANNER_HERO.TITLE}	
