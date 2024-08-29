@@ -5,13 +5,13 @@ interface Props extends HTMLAttributes<"input"> {
 	label: string;
 }
 
-const { label, ...props } = Astro.props;
+const { label, error, ...props } = Astro.props;
 ---
 
 <div class="inputField mb-4 js-validate">
 	<input class:list={["inputField__input", Astro.props.class]} {...props} />
 	<label for={props.id} class="inputField__label">{label}</label>
-	<span class="inputField__error">Campo obrigatório</span>
+	<span class="inputField__error">{error}</span>
 </div>
 
 <style lang="scss">

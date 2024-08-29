@@ -1,5 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <div class="skill__content bg-alabaster py-12 md:py-16" id="service">
@@ -9,11 +13,11 @@ import { Image } from "astro:assets";
 
 			<div class="skill__textWrap text-center">
 				<h3 class="skill__title text-primary text-[1.8rem] md:text-[2.125rem] mb-5">
-					Nossa experiência
+					{i18n.SKILLS.TITLE}
 				</h3>
 
 				<p class="skill__subtitle text-riverBed mb-5">
-					Conheça algumas das marcas para as quais nosso time já contribuiu
+					{i18n.SKILLS.SHORT_DESCRIPTION}	
 				</p>
 	
 			</div>
@@ -67,12 +71,12 @@ import { Image } from "astro:assets";
 
 		&::before {
 			left: 0;
-			background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(248,248,248,0.63) 39%,rgba(248,248,248,0.44) 59%); 
+			background: linear-gradient(to right,  rgba(2248,248,248,1) 0%,rgba(248,248,248,0.63) 39%,rgba(248,248,248,0.44) 59%); 
 		}
 
 		&::after {
 			right: 0;
-			background: linear-gradient(to right,  rgba(248,248,248,0.44) 0%,rgba(248,248,248,0.44) 68%,rgba(255,255,255,1) 100%);
+			background: linear-gradient(to right,  rgba(248,248,248,0.44) 0%,rgba(248,248,248,0.44) 68%,rgba(248,248,248,1) 100%);
 		}
 
 		&:hover {

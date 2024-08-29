@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import SocialMidiaLinks from "./SocialMidiaLinks.astro";
+
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <footer>
@@ -109,13 +114,13 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 						<div class="footer__menuSection md:grow">
 							<section>
 								<h3 class="footer__title text-white mb-4">
-									Empresa
+									{i18n.FOOTER.COMPANY}										
 								</h3>
 
 								<ul class="footer__menuItems">
 									<li class="footer__menuItem">
 										<a href="#team" class="footer__link text-[0.875rem]">
-											Sobre
+											{i18n.FOOTER.ABOUT}	
 										</a>
 									</li>
 
@@ -145,7 +150,7 @@ import SocialMidiaLinks from "./SocialMidiaLinks.astro";
 		<div class="container px-4 2xl:px-0">
 			<div class="text-center">
 				<p class="footer__copyText text-white text-[0.875rem]">
-					© Copyright <strong>CARBON TECH</strong> Todos os direitos reservados
+					© {i18n.FOOTER.COPY}	
 				</p>
 			</div>
 		</div>

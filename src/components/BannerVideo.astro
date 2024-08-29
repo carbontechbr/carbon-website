@@ -1,6 +1,10 @@
 ---
-import { Image } from "astro:assets"
-import Modal from "./Modal.vue"
+import { Image } from "astro:assets";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
 ---
 <div class="bannerVideo" id="video">
 	<div class="bannerVideo__content">
@@ -8,11 +12,11 @@ import Modal from "./Modal.vue"
 			<section class="md:flex md:items-center">
 				<div class="bannerVideo__textWrap py-6 lg:py-12 md:w-2/4">
 					<h2 class="bannerVideo__title text-white mb-4 lg:mt-8">
-						Aumente sua Taxa de Conversão
+						{i18n.BANNER_VIDEO.TITLE}
 					</h2>
 
 					<p class="bannerVideo__subtitle text-white mb-4">
-						Implemente o checkout que mais converte em Salesforce Commerce Cloud
+						{i18n.BANNER_VIDEO.DESCRIPTION}			
 					</p>
 				</div>
 

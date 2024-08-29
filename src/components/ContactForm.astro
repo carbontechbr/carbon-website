@@ -1,6 +1,15 @@
 ---
 import InputField from "./InputField.astro";
 import SocialMidiaLinks from "./SocialMidiaLinks.astro";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const msgs = {
+	"invalid_email" : i18n.CONTACT_FORM.INVALID_EMAIL,
+	"success": i18n.CONTACT_FORM.SUCCESS_MESSAGE
+};
 
 export const prerender = false;
 ---
@@ -11,13 +20,13 @@ export const prerender = false;
 
 			<div class="contactForm__introduction">
 				<h3 class="custom__title text-primary inline-block mb-4">
-					Fale conosco
+					{i18n.CONTACT_FORM.TITLE}
 				</h3>
 
 				<div class="contactForm__socialText">
 
 					<p class="contactForm__title text-primary my-4 md:my-10">
-						Entre em contato <span>conosco</span>
+						{i18n.CONTACT_FORM.JOIN_CONTACT}
 					</p>
 
 					<SocialMidiaLinks />					
@@ -28,21 +37,21 @@ export const prerender = false;
 			<div class="contactForm__formContent py-8">	
 				<form name="frmContact" method="post" netlify>
 					<div class="contactForm__inputWrap py-4">
-						<InputField label="Seu nome" type="text" name="name" id="inpt_name" required />
-						<InputField label="Endereço de e-mail" name="email" type="email" id="inpt_email" required />
-						<InputField label="Telefone (opcional)" name="phone" type="tel" id="inpt_phone" maxlength="18" />
+						<InputField label={i18n.CONTACT_FORM.YOUR_NAME} type="text" name="name" id="inpt_name" error={i18n.CONTACT_FORM.LABEL_REQUIRED} required />
+						<InputField label={i18n.CONTACT_FORM.EMAIL_ADDRESS}  name="email" type="email" id="inpt_email" error={i18n.CONTACT_FORM.LABEL_REQUIRED} required />
+						<InputField label={i18n.CONTACT_FORM.PHONE_NUMBER}  name="phone" type="tel" id="inpt_phone" maxlength="18" />
 					</div>
 
 					<div class="textArea js-validate py-5">
 						<textarea name="message" id="contacMessage" class="textArea__content" required></textarea>				
-						<label for="contacMessage" class="txtArea__label">Descreva da melhor forma qual seu objetivo em seu negócio</label>
-						<span class="textArea__error">Campo obrigatório</span>
+						<label for="contacMessage" class="txtArea__label">{i18n.CONTACT_FORM.MESSAGE}</label>
+						<span class="textArea__error">{i18n.CONTACT_FORM.LABEL_REQUIRED} </span>
 					</div>
 
 					<div class="contactFrom__btnSubmit">
 						<button class="btn js-submit bg-secondary text-white p-4 lg:p-8">
 							<span class="inline-flex gap-4 items-center">
-								Enviar mensagem <i class="icon-arrow-right"></i>
+								{i18n.CONTACT_FORM.SUBMIT_BUTTON} <i class="icon-arrow-right"></i>
 							</span>
 						</button>
 					</div>
@@ -55,6 +64,10 @@ export const prerender = false;
 	</div>
 </div>
 
+
+<script is:inline define:vars={{ msgs }}>
+	window.msgs = msgs;
+</script>
 
 <script>
 
@@ -81,7 +94,7 @@ export const prerender = false;
 
 			if(field.type == "email" &&  field.value.trim() !== "" && !isEmail(field.value)) {
 				field.closest('.js-validate').classList.add('is__error');
-				field.closest('.js-validate').querySelector('.inputField__error').innerHTML = 'E-mail inválido';
+				field.closest('.js-validate').querySelector('.inputField__error').innerHTML = window.msgs.invalid_email;
 				hasError = true;	
 			}
 		}
@@ -100,7 +113,7 @@ export const prerender = false;
 			})
 			.then(() => {			
 				snackBar.classList.add('snackbar--success', 'show');
-				snackBar.querySelector('.snack__message').innerHTML = 'Enviado com sucesso!';					
+				snackBar.querySelector('.snack__message').innerHTML = window.msgs.success;					
 
 				time = setTimeout(() => {
 					snackBar.classList.remove('snackbar--success', 'show');
