@@ -8,18 +8,22 @@ const t = useTranslations(lang);
 
 <div class="header__langButton md:flex md:gap-4 md:flex-wrap md:items-center">
 	<div class="header__language relative">
-		<div class="header__language--selected">
+		<div class="header__language--selected js-change-lang">
 			<div class={'cursor-pointer langList__item lang--'+lang}>  <span>{languages[lang]}</span> </div>
 		</div>
 		<section>
 			<nav>
-				<ul class="langList absolute z-10 bg-white">
+				<ul class="langList">
 					<li class={'langList__item lang--en'}>
-						<span class="text-primary">{t('lang.us')}	</span>
+						<a href="/en">
+							<span class="text-primary">{t('lang.us')}	</span>
+						</a>
 					</li>
 
 					<li class={'langList__item lang--pt'}>
-						<span class="text-primary">{t('lang.br')}	</span>
+						<a href="/">						
+							<span class="text-primary">{t('lang.br')}	</span>
+						</a>
 					</li>
 				</ul>
 			</nav>
@@ -34,7 +38,74 @@ const t = useTranslations(lang);
 	</div>
 </div>
 
+<script>
+
+	const btnLang = document.querySelectorAll('.js-change-lang');
+	
+	btnLang.forEach(btn => btn.addEventListener('click', (el) => {
+		const lanList = el.target.closest('.header__langButton').querySelector('.langList');
+
+		if(lanList){
+			lanList.classList.toggle('active');
+		}
+
+		lanList.addEventListener('mouseleave', (e) => {
+			e.target.classList.remove('active');
+		});
+
+	}));
+
+</script>
+
 <style lang="scss">
+
+	@keyframes fade {
+		from {
+			display: none;
+			opacity: 0;
+			transform: scale(0);
+		}
+   	to {
+			display: block;
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	
+	.langList {
+		position: absolute;
+		background-color: #FFFFFF;
+		margin-top: 20px;
+		padding: 8px;
+		overflow: hidden;
+		display: none;
+		transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+		z-index: 3;
+
+		&.active {
+			display: block;
+			animation: fade .4s ease-in-out;;
+		}
+
+		&::before {
+			content: " ";
+			position: absolute;
+			top: -20px;
+			width: 100%;
+			height: 20px;
+			display: block;
+		}
+
+		.langList__item {
+			margin-bottom: 8px;
+			a {
+				display: block;
+				span {
+					font-size: 0.875rem;	
+				}		
+			}
+		}
+	}
 	.langList__item {
 		margin-right: 16px;
 

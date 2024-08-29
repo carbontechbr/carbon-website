@@ -10,7 +10,10 @@ export default defineConfig({
   output: "hybrid",
   adapter: netlify(),
   i18n: {
-    defaultLocale: "pt-br",
-    locales: ["en", "pt-br"],
+    defaultLocale: "pt",
+    locales: ["en", "pt"],
+    fallback: {
+      en: 'pt'
+    }
   }
 });
