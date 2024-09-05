@@ -25,7 +25,7 @@ const { currentLocale } = Astro;
 
 				<div class="header__logo">
 					<a href={getRelativeLocaleUrl(currentLocale ?? '', '')}>
-						<Image src="/images/logo.svg" alt="Logo Carbon Tech" width="200" height="45" />
+						<Image src="/images/logo.svg" alt="Logo Carbon Tech" width={200} height={45} densities={[.5, 1]}  />
 					</a>
 				</div>
 
