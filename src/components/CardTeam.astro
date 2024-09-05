@@ -16,7 +16,7 @@ const { photo,name,role,description } = Astro.props;
 	<article>
 		<div class="cardTeam__figure mb-4">
 			<figure>
-				<Image src={photo} alt={name} width="350" height="250" />
+				<Image src={photo} alt={name} width={350} height={250} densities={[.5, 1]} />
 			</figure>
 		</div>
 		<h3 class="cardTeam__name text-primary mb-2">{name}</h3>

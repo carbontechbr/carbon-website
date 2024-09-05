@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 
+import mainBanner from '@/assets/bg-main-slider.jpeg';
+
 interface Props {
 	title: string;
 	titleSpan: string;
@@ -33,7 +35,7 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 				</div>
 
 				<div class="bannerHero__img">
-					<Image src={asset} alt="Image Banner Hero" width="1920" height="620" class="anime__img" />
+					<img src={asset} alt="Image Banner Hero" class="anime__img" width={595} height={620} densities={[.5, 1]} />
 
 				</div>
 			</div>			
@@ -41,7 +43,12 @@ const { title, titleSpan,subtitle,buttonText,asset } = Astro.props;
 	</div>
 
 	<div class="bannerHero__bg">
-		<Image src="/images/bg-main-slider.jpeg" alt="Background Banner Hero" width="1920" height="620" />
+		<Image 
+			src={mainBanner}
+			alt="Background Banner Hero" 
+			widths={[240, 540, 720, mainBanner.width]}
+  			sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${mainBanner.width}px`}
+		/>
 	</div>
 
 </div>
