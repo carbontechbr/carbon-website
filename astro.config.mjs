@@ -8,5 +8,12 @@ import vue from "@astrojs/vue";
 export default defineConfig({
   integrations: [tailwind(), vue()],
   output: "hybrid",
-  adapter: netlify()
+  adapter: netlify(),
+  i18n: {
+    defaultLocale: "pt",
+    locales: ["en", "pt"],
+    fallback: {
+      en: 'pt'
+    }
+  }
 });

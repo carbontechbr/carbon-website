@@ -1,5 +1,9 @@
 ---
 import CardTeam from './CardTeam.astro';
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <div class="team__content my-8 md:my-12" id="team">
@@ -11,32 +15,52 @@ import CardTeam from './CardTeam.astro';
 					photo='/images/rafael-ruppel.jpeg'
 					name='Rafael Ruppel'
 					role='Founder & Advisor'
-					description='Experiência de mais de 20 anos em e-Commerce. Ex-fundador da Atonit, 1a empresa da América Latina adquirida pela Salesforce. Ex-VP Product Management Salesforce. '				
+					description={i18n.TEAM.RAFAEL_R_ABOUT}				
 				/>	
 		
 				<CardTeam 
 					photo='/images/vitor-santos.jpeg'
 					name='Vitor Santos'
 					role='Founder & CEO'
-					description='Experiência de mais de 7 anos em e-Commerce. Experiência internacional em gestão de times de alta performance. Ex-Gerente de Engenharia da Salesforce'				
+					description={i18n.TEAM.VITOR_S_ABOUT}				
 				/>
 		
 				<CardTeam 
 					photo='/images/guilherme-serrano.jpeg'
 					name='Guilherme Serrano'
 					role='Founder & Advisor'
-					description='Experiência de mais de 15 anos na Indústria de Bens de Consumo, Ex-Diretor Financeiro na Procter & Gamble e Ex-Regional CFO para Mercados Emergentes na Reckitt baseado em Dubai. Atual Regional CFO para Europa, África e Oriente Médio no Setor de Energia, Óleo e Gás na Valvoline - Aramco.'				
+					description={i18n.TEAM.GUILHERME_S_ABOUT}					
+				/>
+
+				<CardTeam 
+					photo='/images/peterson-camargo.jpeg'
+					name='Peterson Camargo'
+					role='Founder & CTO'
+					description={i18n.TEAM.PETERSON_C_ABOUT}					
+				/>
+
+				<CardTeam 
+					photo='/images/Daniel-bemfica.jpeg'
+					name='Daniel Bemfica'
+					role='Software Architect'
+					description={i18n.TEAM.DANIEL_B_ABOUT}					
+				/>
+				<CardTeam 
+					photo='/images/Eduardo-santana.jpg'
+					name='Eduardo Santana'
+					role='Software Architect'
+					description={i18n.TEAM.EDUARDO_S_ABOUT}					
 				/>
 
 			</div>
 
 			<div class="team__about mb-8 md:mb-2 md:order-2">
 				<h3 class="team__group mb-6 md:mb-5 text-primary">
-					Reunião de talento e experiência
+					{i18n.TEAM.TITLE}	
 				</h3>
 
 				<div class="team__textCaption lineText ">
-					Somos uma boutique de desenvolvimento com um time ágil e extremamente qualificado. Consultoria especializada em e-commerce e projetos de missão crítica. O time mais qualificado em Salesforce Commerce Cloud da América Latina.
+					{i18n.TEAM.SHORT_DESCRIPTION}	
 				</div>
         
 			</div>

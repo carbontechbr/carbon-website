@@ -1,0 +1,48 @@
+{
+  "BANNER_HERO": {
+    "TITLE": "Talento e Experiência",
+    "TITLE_SPAN": "em E-commerce",
+    "SUBTITLE": "Conte com a equipe que construiu alguns dos mais bem sucedidos e-commerces brasileiros.",
+    "BUTTON_TEXT": "Vamos transformar juntos"
+  },   
+  "TEAM": {
+    "TITLE": "Reunião de talento e experiência",
+    "SHORT_DESCRIPTION": "Somos uma boutique de desenvolvimento com um time ágil e extremamente qualificado. Consultoria especializada em e-commerce e projetos de missão crítica. O time mais qualificado em Salesforce Commerce Cloud da América Latina.",
+    "RAFAEL_R_ABOUT": "Experiência de mais de 20 anos em e-Commerce. Foi Fundador e CEO da Atonit, 1a empresa da América Latina adquirida pela Salesforce. Ex-VP Product Management Salesforce Commerce.",
+    "VITOR_S_ABOUT": "Experiência de mais de 7 anos em e-Commerce. Experiência internacional em gestão de times de alta performance. Ex-Gerente de Engenharia da Salesforce.",
+    "GUILHERME_S_ABOUT": "Experiência de mais de 15 anos na Indústria de Bens de Consumo, Ex-Diretor Financeiro na Procter & Gamble e Ex-Regional CFO para Mercados Emergentes na Reckitt baseado em Dubai. Atual Regional CFO para Europa, África e Oriente Médio no Setor de Energia, Óleo e Gás na Valvoline - Aramco.",
+    "DANIEL_B_ABOUT": "Experiência de mais de 7 anos no ecossistema Salesforce. Experiência em projetos internacionais de grande escala e na liderança de equipes de alta performance. Ex-Engenheiro Líder da Salesforce, com atuação na divisão de Commerce, contribuindo para o desenvolvimento de soluções inovadoras e para a expansão global da plataforma.",
+    "EDUARDO_S_ABOUT": "Mais de 12 anos de experiência na área de desenvolvimento de Software com foco nas áreas de e-commerce e serviços. Ex-Gerente de engenharia na Salesforce atuando com times globais no desenvolvimento de soluções para e-commerce.",
+    "PETERSON_C_ABOUT": "Experiência de mais de 15 anos em e-Commerce. Pioneiro em desenvolvimento Salesforce Commerce no Brasil. Fundador e ex-CTO da Atonit. Ex-Diretor de Engenharia do Salesforce Commerce Cloud."
+  },
+  "SKILLS": {
+    "TITLE": "Nossa experiência",
+    "SHORT_DESCRIPTION": "Conheça algumas das marcas para as quais nosso time já contribuiu"
+  },
+  "BANNER_VIDEO": {
+    "TITLE": "Aumente sua Taxa de Conversão",
+    "DESCRIPTION": "Implemente o checkout que mais converte em Salesforce Commerce Cloud"      
+  },
+  "CONTACT_FORM": {
+    "TITLE": "Fale conosco",
+    "JOIN_CONTACT": "Entre em contato conosco",
+    "YOUR_NAME": "Seu nome",
+    "EMAIL_ADDRESS": "Endereço de e-mail",
+    "PHONE_NUMBER": "Telefone(opcional)",
+    "MESSAGE": "Descreva da melhor forma qual seu objetivo em seu negócio",
+    "SUBMIT_BUTTON": "Enviar mensagem",
+    "LABEL_REQUIRED": "campo obrigatório",
+    "INVALID_EMAIL": "E-mail inválido",
+    "SUCCESS_MESSAGE": "Enviado com sucesso"
+  },
+  "CONTACT_INFO": {
+    "TITLE": "Finromações de contato",
+    "SHORT_DESCRIPTION": "Estamos sempre felizes em ajudá-lo",
+    "TITLE_ADDRESS": "Endereço"
+  },
+  "FOOTER": {
+    "ABOUT": "Sobre",
+    "COMPANY": "Empresa",
+    "COPY": "Copyright CARBON TECH Todos os direitos reservados"
+  }
+}

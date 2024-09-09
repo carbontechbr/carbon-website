@@ -1,6 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import LanguageCta from './LanguageCta.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getLangFromUrl, useTranslations} from '@/i18n/utils.ts'
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { currentLocale } = Astro;
 
 ---
 
@@ -17,8 +24,8 @@ import LanguageCta from './LanguageCta.astro';
 			<div class="header__wrap md:flex md:justify-between md:items-center">
 
 				<div class="header__logo">
-					<a href="/">
-						<Image src="/images/logo.svg" alt="Logo Carbon Tech" width="200" height="45" />
+					<a href={getRelativeLocaleUrl(currentLocale ?? '', '')}>
+						<Image src="/images/logo.svg" alt="Logo Carbon Tech" width={200} height={45} densities={[.5, 1]}  />
 					</a>
 				</div>
 
@@ -28,7 +35,7 @@ import LanguageCta from './LanguageCta.astro';
 							<li class="header__menuItem">
 								<a href="#service">
 									<span>
-										Serviços									
+										{t('nav.service')}								
 									</span>
 								</a>
 							</li>
@@ -42,7 +49,7 @@ import LanguageCta from './LanguageCta.astro';
 							<li class="header__menuItem">
 								<a href="#video">
 									<span>
-										Como Fazemos
+										{t('nav.how.we.do')}
 									</span>
 								</a>
 							</li>
