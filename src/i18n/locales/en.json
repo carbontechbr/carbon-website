@@ -28,7 +28,7 @@
     "JOIN_CONTACT": "Please leave your message",
     "YOUR_NAME": "Your name",
     "EMAIL_ADDRESS": "Email address",
-    "PHONE_NUMBER": "Phone(optional)",
+    "PHONE_NUMBER": "Phone (optional)",
     "MESSAGE": "Describe your business goal in the best possible way",
     "SUBMIT_BUTTON": "Send message",
     "LABEL_REQUIRED": "Required field",
@@ -43,6 +43,6 @@
   "FOOTER": {
     "ABOUT": "About",
     "COMPANY": "Company",
-    "COPY": "Copyright CARBON TECH All rights reserved"
+    "COPY": "Copyright CARBON TECH. All rights reserved"
   }
 }
