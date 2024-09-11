@@ -1,13 +1,13 @@
 {
   "BANNER_HERO": {
-    "TITLE": "Talent and Experience",
-    "TITLE_SPAN": "in E-commerce",
-    "SUBTITLE": "Count on the team that built some of the most successful brasilians e-commerce.",
+    "TITLE": "The Commerce Experts",
+    "TITLE_SPAN": "",
+    "SUBTITLE": "Talent and experience of one of the most successful consulting teams in the Commerce market",
     "BUTTON_TEXT": "Let's transform together"
   },   
   "TEAM": {
-    "TITLE": "A meeting of talent and experience",
-    "SHORT_DESCRIPTION": "We are a boutique development firm with an agile and highly qualified team. We specialize in e-commerce consulting and mission-critical projects. The most qualified Salesforce Commerce Cloud team in Latin America.",
+    "TITLE": "Strong skills, unparalleled commitment.",
+    "SHORT_DESCRIPTION": "We are a boutique development firm with an agile and highly qualified team. We are experts in e-commerce and mission-critical projects. The most qualified Salesforce Commerce Cloud team in Latin America.",
     "RAFAEL_R_ABOUT": "Over 20 years of experience in e-commerce. Former Founder and CEO of Atonit, the first company in Latin America acquired by Salesforce. Former VP of Product Management at Salesforce Commerce.",
     "VITOR_S_ABOUT": "Over 7 years of experience in e-commerce. International experience in managing high-performance teams. Former Engineering Manager at Salesforce.",
     "GUILHERME_S_ABOUT": "Over 15 years of experience in the Consumer Goods industry. Former Finance Director at Procter & Gamble and former Regional CFO for Emerging Markets at Reckitt, based in Dubai. Currently, Regional CFO for Europe, Africa, and the Middle East in the Energy, Oil, and Gas sector at Valvoline - Aramco.",
@@ -16,7 +16,7 @@
     "PETERSON_C_ABOUT": "Over 15 years of experience in e-commerce. A pioneer in Salesforce Commerce development in Brazil. Founder and former CTO of Atonit. Former Director of Engineering at Salesforce Commerce Cloud."
   },
   "SKILLS": {
-    "TITLE": "Our Experince",
+    "TITLE": "Our Experience",
     "SHORT_DESCRIPTION": "Discover some of the brands our team has contributed to"
   },
   "BANNER_VIDEO": {
@@ -25,7 +25,7 @@
   },
   "CONTACT_FORM": {
     "TITLE": "Contact us",
-    "JOIN_CONTACT": "Join contact with us",
+    "JOIN_CONTACT": "Please leave your message",
     "YOUR_NAME": "Your name",
     "EMAIL_ADDRESS": "Email address",
     "PHONE_NUMBER": "Phone(optional)",
